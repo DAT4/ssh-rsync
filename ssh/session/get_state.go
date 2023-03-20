@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"io/fs"
 	"path/filepath"
-	"sshcli/state"
 	"strings"
 	"time"
+
+	"github.com/DAT4/ssh-rsync/state"
 )
 
 func (s *Session) GetState(sourcePath, targetPath string) (*state.State, error) {

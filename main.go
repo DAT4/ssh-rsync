@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"sshcli/client"
-	"sshcli/rsync"
+
+	"github.com/DAT4/ssh-rsync/rsync"
+	"github.com/DAT4/ssh-rsync/ssh/client"
 )
 
 func main() {

@@ -2,10 +2,10 @@ package rsync
 
 import (
 	"fmt"
-	"sshcli/client"
-	"sshcli/session"
 	"strings"
 
+	"github.com/DAT4/ssh-rsync/ssh/client"
+	"github.com/DAT4/ssh-rsync/ssh/session"
 	"golang.org/x/crypto/ssh"
 )
 
