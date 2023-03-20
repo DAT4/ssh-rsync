@@ -28,23 +28,6 @@ func New(username, host string, privateKey []byte) (*Client, error) {
 	}, nil
 }
 
-func (c *Client) Do(handler func(*ssh.Session) error) error {
-	client, err := ssh.Dial("tcp", c.host, c.config)
-	if err != nil {
-		return fmt.Errorf("Failed to dial: %s", err)
-	}
-	defer client.Close()
-	session, err := client.NewSession()
-	if err != nil {
-		return fmt.Errorf("Failed to create session: %s", err)
-	}
-	defer session.Close()
-	if err := handler(session); err != nil {
-		return fmt.Errorf("Failed to apply handler on session: %s", err)
-	}
-	return nil
-}
-
 func (c *Client) Handle(handler func(*ssh.Client) error) error {
 	client, err := ssh.Dial("tcp", c.host, c.config)
 	if err != nil {
