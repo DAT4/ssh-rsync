@@ -45,7 +45,7 @@ func (c *Client) Do(handler func(*ssh.Session) error) error {
 	return nil
 }
 
-func (c *Client) Map(handler func(*ssh.Client) error) error {
+func (c *Client) Handle(handler func(*ssh.Client) error) error {
 	client, err := ssh.Dial("tcp", c.host, c.config)
 	if err != nil {
 		return fmt.Errorf("Failed to dial: %s", err)

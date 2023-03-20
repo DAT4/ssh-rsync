@@ -9,11 +9,11 @@ type State struct {
 	RemoteMis, LocalMis, RemoteChange, LocalChang []string
 }
 
-func New(a, b map[string]time.Time) State {
+func New(a, b map[string]time.Time) *State {
 	missing, changed := getChanges(a, b)
 	srvMiss, srvChang := getChanges(b, a)
 
-	return State{
+	return &State{
 		RemoteMis:    missing,
 		LocalChang:   changed,
 		LocalMis:     srvMiss,
